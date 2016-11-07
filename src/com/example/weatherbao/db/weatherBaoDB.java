@@ -3,15 +3,14 @@ package com.example.weatherbao.db;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.example.weatherbao.model.City;
-import com.example.weatherbao.model.County;
-import com.example.weatherbao.model.Province;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteDatabase.CursorFactory;
+
+import com.example.weatherbao.model.City;
+import com.example.weatherbao.model.County;
+import com.example.weatherbao.model.Province;
 
 public class weatherBaoDB {
 
@@ -28,8 +27,8 @@ public class weatherBaoDB {
 			 null, VERSION);
 		db = dbHelper.getWritableDatabase();
 	}
-	
-	private synchronized static weatherBaoDB getInstance(Context context){
+	//weatherBaoÊµÀý
+	public synchronized static weatherBaoDB getInstance(Context context){
 		if(weatherBaoDB == null){
 			weatherBaoDB = new weatherBaoDB(context);
 		}
